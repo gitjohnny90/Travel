@@ -16,18 +16,14 @@ description: Use when the user wants to find, compare, or price flights. Trigger
 
 ## Search order
 
-1. **Prefer `tools/kiwi.py`** if `KIWI_API_KEY` is set in `.env`. Examples:
-   - Exact: `./tools/kiwi.py search --from LAX --to NRT --date 2026-08-15 --return 2026-08-29`
-   - Flex window: add `--flex-days 3`
-   - Nearby airports: comma-separated, e.g. `--from LAX,BUR,LGB --to HND,NRT`
-   - Cabin: `--cabin C` (business) / `W` (premium economy) / `F` (first)
-   - Always run an exact-date pass AND a flex-day pass.
-2. **Otherwise** — WebFetch these and call out that prices are approximate:
-   - Google Flights (`https://www.google.com/travel/flights`) — best calendar view
-   - Kayak — strong for nearby-airport and multi-city
-   - Skyscanner — strong for "everywhere" searches
-   - The airline direct site for the best one or two options found (cheapest is sometimes only there)
-3. Always check **at least one OTA and one airline direct** before recommending.
+1. **Start with the `kiwi` MCP `search-flight` tool.** Hosted, no key needed.
+   - Specify trip type (round-trip / one-way), origin + destination IATA codes, dates, pax, cabin.
+   - Nearby airports: pass a list of IATA codes for origin and/or destination.
+   - Always run an exact-date pass AND a ±3-day flex pass — Kiwi supports flex natively.
+2. **Cross-check on Google Flights** via WebFetch (`https://www.google.com/travel/flights`) — best calendar view for monthly low-fare framing and the "low / typical / high" verdict.
+3. **Verify the top one or two options on the airline-direct site** — the cheapest seat is sometimes only there, and basic-economy fees/bags differ.
+4. **For LCCs not in aggregators** (Southwest, JetBlue Blue Basic edges, Spirit, Frontier, Ryanair, Wizz), WebFetch the airline site directly and call out that the agent couldn't cross-reference.
+5. Always check **at least one OTA and one airline-direct** before recommending.
 
 ## Cheap-fare levers to try
 

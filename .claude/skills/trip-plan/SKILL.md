@@ -32,12 +32,24 @@ Mark these in "Reservations needed in advance":
 
 ## Map verification
 
-If `GOOGLE_MAPS_API_KEY` is set, use `tools/maps.py`:
-- `./tools/maps.py places "{anchor}" --near "{city}"` — confirms it exists, gets rating, open-now, place id
-- `./tools/maps.py details <place_id>` — full opening hours, website, phone, reviews
-- `./tools/maps.py directions "{prev stop}" "{next stop}" --mode walking` (or `transit`)
+Use the `google-maps` MCP (requires `GOOGLE_MAPS_API_KEY`):
+- `maps_search_places` — confirm an anchor exists, get rating, open-now status, place id.
+- `maps_place_details` — full opening hours, website, phone, reviews.
+- `maps_directions` — walking / transit / driving time between consecutive stops.
+- `maps_distance_matrix` — many-to-many timings when ordering a day's stops.
+- `maps_geocode` — resolve a name to coordinates.
 
-Without a key: WebFetch Google Maps URLs and note that times are estimates.
+Verify travel times rather than estimating — LLM-guessed durations skew optimistic. Without the MCP: WebFetch Google Maps URLs and note that times are estimates.
+
+## Lodging
+
+If the user wants help shortlisting stays:
+- `airbnb` MCP — `airbnb_search` then `airbnb_listing_details` on the shortlist.
+- For hotels, WebFetch Booking.com and one or two direct chain sites; record the date checked.
+
+## Budget math
+
+Use the `currency` MCP for any cross-currency totals — `convert_currency` for single sums, `get_latest_rates` when rolling up a day or trip. Don't ask the user to do FX math.
 
 ## Rain-day / contingency
 

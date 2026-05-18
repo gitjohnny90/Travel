@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "kiwi": {
+      "type": "http",
+      "url": "https://mcp.kiwi.com"
+    },
+    "airbnb": {
+      "command": "npx",
+      "args": ["-y", "@openbnb/mcp-server-airbnb"]
+    },
+    "currency": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://currency-mcp.wesbos.com/sse"]
+    },
+    "google-maps": {
+      "command": "npx",
+      "args": ["-y", "@cablate/mcp-google-map", "--stdio"],
+      "env": {
+        "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY}"
+      }
+    }
+  }
+}
