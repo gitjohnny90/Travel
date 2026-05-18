@@ -32,12 +32,12 @@ Mark these in "Reservations needed in advance":
 
 ## Map verification
 
-If a Google Maps MCP is available, use it to:
-- Confirm each place exists and pull current opening hours / ratings
-- Get walking + transit time between consecutive stops
-- Identify a nearby cheap lunch when a gap appears
+If `GOOGLE_MAPS_API_KEY` is set, use `tools/maps.py`:
+- `./tools/maps.py places "{anchor}" --near "{city}"` — confirms it exists, gets rating, open-now, place id
+- `./tools/maps.py details <place_id>` — full opening hours, website, phone, reviews
+- `./tools/maps.py directions "{prev stop}" "{next stop}" --mode walking` (or `transit`)
 
-Without it: use WebFetch on Google Maps URLs, note that times are estimates.
+Without a key: WebFetch Google Maps URLs and note that times are estimates.
 
 ## Rain-day / contingency
 

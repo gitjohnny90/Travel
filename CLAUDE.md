@@ -12,6 +12,9 @@ Personal travel planning workspace. Used to research destinations, hunt cheap fl
 - `preferences.md` — user's standing travel preferences. Read on every session.
 - `trips/<destination>-<YYYY-MM>.md` — one file per trip. Append research, fare quotes, itinerary, booking confirmations.
 - `templates/itinerary.md` — copy this when starting a new trip.
+- `tools/kiwi.py` — Kiwi Tequila flight search CLI. See `tools/README.md`.
+- `tools/maps.py` — Google Maps places / details / directions / geocode CLI.
+- `.env` (gitignored) — API keys. Copy from `.env.example`.
 - `.claude/skills/` — playbooks I follow automatically when a matching task comes up:
   - `flight-search` — hunting cheap fares
   - `trip-plan` — building day-by-day itineraries

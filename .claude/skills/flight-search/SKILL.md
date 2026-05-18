@@ -16,10 +16,12 @@ description: Use when the user wants to find, compare, or price flights. Trigger
 
 ## Search order
 
-1. **If a flights API MCP is configured** (Kiwi Tequila, Duffel, Amadeus) — use it first. Run:
-   - Exact-date search
-   - ±3 day flexible-date matrix
-   - Nearby-airport variants
+1. **Prefer `tools/kiwi.py`** if `KIWI_API_KEY` is set in `.env`. Examples:
+   - Exact: `./tools/kiwi.py search --from LAX --to NRT --date 2026-08-15 --return 2026-08-29`
+   - Flex window: add `--flex-days 3`
+   - Nearby airports: comma-separated, e.g. `--from LAX,BUR,LGB --to HND,NRT`
+   - Cabin: `--cabin C` (business) / `W` (premium economy) / `F` (first)
+   - Always run an exact-date pass AND a flex-day pass.
 2. **Otherwise** — WebFetch these and call out that prices are approximate:
    - Google Flights (`https://www.google.com/travel/flights`) — best calendar view
    - Kayak — strong for nearby-airport and multi-city
