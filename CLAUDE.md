@@ -24,7 +24,7 @@ Personal travel planning workspace. Used to research destinations, hunt cheap fl
 
 - **kiwi** (`search-flight`) — hosted at mcp.kiwi.com, no key. Round-trip / one-way, ±3-day flex, multi-pax, cabin class, returns booking links.
 - **airbnb** (`airbnb_search`, `airbnb_listing_details`) — no key. Scrapes Airbnb; respects robots.txt.
-- **currency** (`convert_currency`, `get_latest_rates`, `get_historical_rates`, `get_currencies`) — no key. Frankfurter / ECB rates.
+- **currency** (`convert_currency_latest`, `convert_currency_specific_date`, `get_latest_exchange_rates`, `get_historical_exchange_rates`, `get_supported_currencies`) — no key. Frankfurter / ECB rates; runs locally via `uvx`.
 - **google-maps** (`maps_search_places`, `maps_place_details`, `maps_directions`, `maps_geocode`, `maps_distance_matrix`, `maps_search_nearby`, plus composite tools like `maps_plan_route`) — needs `GOOGLE_MAPS_API_KEY`.
 
 ## House rules

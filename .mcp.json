@@ -9,8 +9,8 @@
       "args": ["-y", "@openbnb/mcp-server-airbnb"]
     },
     "currency": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://currency-mcp.wesbos.com/sse"]
+      "command": "uvx",
+      "args": ["--from", "frankfurtermcp", "frankfurtermcp"]
     },
     "google-maps": {
       "command": "npx",

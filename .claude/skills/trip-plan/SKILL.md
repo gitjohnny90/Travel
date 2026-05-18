@@ -49,7 +49,7 @@ If the user wants help shortlisting stays:
 
 ## Budget math
 
-Use the `currency` MCP for any cross-currency totals — `convert_currency` for single sums, `get_latest_rates` when rolling up a day or trip. Don't ask the user to do FX math.
+Use the `currency` MCP for any cross-currency totals — `convert_currency_latest` for single sums, `get_latest_exchange_rates` when rolling up a day or trip. Don't ask the user to do FX math.
 
 ## Rain-day / contingency
 
